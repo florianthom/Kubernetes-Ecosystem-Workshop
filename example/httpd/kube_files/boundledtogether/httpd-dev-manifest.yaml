@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1 # important, this is not a random value, its like docker-compose version
+kind: Deployment
+metadata:
+  name: httpd-simple-page
+spec: # Specification of the deployment
+  replicas: 3
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template: # aka how should 1 pod look like?
+    metadata:
+      labels:
+        app: httpd-simple-page
+    spec: # Specification of the template
+      containers:
+        - image: flooth/apache-demo:0.1
+          imagePullPolicy: Always
+          name: httpd-simple-page
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service              # 1
+metadata:
+  name: httpd-dev-single-page # same as file-name
+spec:
+  type: LoadBalancer       # 2
+  ports:
+  - port: 80               # 3
+    protocol: TCP          # 4
+    targetPort: 80         # 5
+  selector:                # 6
+    app: httpd-simple-page # 7

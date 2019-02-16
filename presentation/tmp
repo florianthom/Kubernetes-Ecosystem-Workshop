@@ -1,0 +1,6 @@
+But do we really need to run two containers in one pod? Erm.. Usually, you run only one container and that’s what we will do in our examples. But for cases when for e.g. two containers need to share volumes, or they communicate with each other using inter-process communication or are otherwise tightly coupled, then that’s made possible using Pods
+
+Was ist Kubernetes
+Welche Probleme löst Kubernetes
+Wie löst sie diese (skalierung usw.)
+Wie wird kubernetes konkret umgesetzt

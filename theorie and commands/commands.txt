@@ -1,0 +1,105 @@
+virtualbox:
+anzeigen der aktuellen vms
+vboxmanage list vms
+
+
+
+
+
+
+
+
+minikube:
+dashboard
+minikube dashboard
+
+anzeigen aller service urls:
+minikube service list
+
+"öffnen" einer url im Broswer
+minikube service servicename
+
+Adons:
+minikube addons list
+minikube addons enable heapster
+minikube addons disable heapster
+
+starten der VM:
+minikube start
+
+Stoppen der VM
+minikube stop
+
+Löschen der VM
+minikube delete
+
+ip der virtuellen maschine und minikube
+minikube ip
+
+
+
+
+
+helm: (helm version)
+show installed charts
+helm ls
+
+löschen von charts
+helm delete releaseName --purge
+
+update
+helm repo update
+
+add repository
+helm repo add jupyterhub URL_to_chart
+
+
+
+
+
+
+
+Kubernetes:
+Begriffe
+manifest = File mit allen gewollten "kind"-s einer ressource
+Managing Kubernetes Objects Using Imperative Commands = create ohne configuration file
+Declarative Management of Kubernetes Objects Using Configuration Files = create mit configuration file
+Declarative object configuration = kubectl apply -f configs/ = apply mit configuration file
+	apply - ist ist declarative wie: create,update,replace oder
+		run (: kubectl apply -f https://raw.githubusercontent.com/pvc.yaml)
+Volume = Pod spezifisches volume
+Persistent Volumes (PV) = Pod-übergreifendes volume / cluster-spezifisch, wird durch Persistent Volume Claim erstellt
+Persistent Volume Claim (PVC) = ist wie ein Pod der ein PV mit gegebenen Claims wie capacity representiert (in dem er 1 PV erstellt (man kann direkt kein PV erstellen...))
+
+
+
+run:	(erstellt pod + deployment)
+kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+
+bash:
+kubectl exec -it init-demo -- /bin/bash
+
+Get ressource (evt.: --all-namespaces)
+kubectl get rs || kubectl get replicaset
+kubectl get pod (Plural ist möglich)
+kubectl get deployment (Plural ist möglich)
+kubectl get services
+kubectl get namespaces
+kubectl get job (bezieht sich auf cronjobs)
+kubectl get replicationcontrollers (not equals replicaset)
+kubectl get configmaps
+kubectl get ingress
+kubectl get hpa # returns the horizontal pod autoscalers
+kubectl get ns # returns the namespaces
+kubectl get secrets
+
+Create ressource via Commandline (and not via yml)
+kubectl expose deployment hello-minikube --type=NodePort || kubectl expose my-nginx # service
+kubectl create -f nginx-deployment.yaml # deployment, welches selbst die pods erstellt
+
+löschen (am Beispiel von pod)
+kubectl delete pods <pod>
+
+Details ressource alles am Beispiel von deployments
+kubectl describe deployments
+kubectl describe deployment hello-minikube #Info über einzelne ressourcen

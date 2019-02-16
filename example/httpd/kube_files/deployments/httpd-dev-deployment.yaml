@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment                                          # 1
+metadata:
+  name: httpd-simple-page
+spec:
+  replicas: 3                                             # 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # 3
+    rollingUpdate: 
+      maxUnavailable: 1                                   # 4
+      maxSurge: 1                                         # 5
+  template:                                               # 6
+    metadata:
+      labels:
+        app: httpd-simple-page                                  # 7
+    spec:
+      containers:
+        - image: flooth/apache-demo:0.1
+          imagePullPolicy: Always                         # 8
+          name: httpd-simple-page # name for container in pod (since we have kind: Deployment, he attaches some small hash to the end of the name of each container)
+          ports:
+            - containerPort: 80

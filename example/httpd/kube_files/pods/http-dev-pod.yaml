@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-simple-page
+spec:                                                # 3
+  containers:
+    - image: flooth/apache-demo:0.1
+      name: httpd-simple-page # name for container in pod (often same like metadata.name if there is only one container in the pod)            
+      ports:
+        - containerPort: 80 # (is optional, if we dont write that here, access on that container port is not restricted) maybe handy to indicate that the dockerfile exposes a port

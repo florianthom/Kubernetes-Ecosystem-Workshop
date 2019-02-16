@@ -1,0 +1,8 @@
+1. Wenn man nicht immer sein image (buildet mit -t ...) zur remote registry pushen möchte (development):
+	eval $(minikube docker-env) # nutzt als registry alle images von docker 
+		(danach kann man glaube keine images mehr von remote registry pullen von kubectl aus)
+		(deshalb muss man dann docker pull machen und dann kann man Image wieder in manifest.yaml/ect. benutzen)
+2. heapster: cpu-usage in dashboard
+3. freshpod: (development) restarts container in kubernetes when their image is updated
+4. ingress: starts automaticly ingress controller
+5. helm: packat-manager

@@ -1,0 +1,1 @@
+responds with information about the request - current endpoint: http://192.168.99.100/meow

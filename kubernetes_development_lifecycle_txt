@@ -1,0 +1,17 @@
+create content
+create dockerfile
+test dockerfile
+docker build image: z.B. docker build -t hello-word . (docker build -t imagename pfad zum dockerfile)
+	- wenn in dockerfile cp oder der gleichen vorhanden: wird mit build in image geladen
+docker login
+docker tag NameOfTheImage flooth/dockerHubRepositoryNameIWantMaybeTheImageName
+	erstellt bei: docker images ein neues image, mit gleichen content aber mit anderen Namen (docker tag heißt heir nicht nur tag z.B. :latest ändern, sondern eher den "richtigen" Namen)
+	erster Teil muss mit DockerHub-RepositoryName übereinstimmen
+check tag in: docker images (hier muss jetzt images mit dem Namen flooth/... sein)
+docker push flooth/...
+docker pull flooth/apache-demo:0.1
+github add, commit und push
+schreiben eines Manifest-files (deployment and service)
+test manifest-files: kubectl apply -f ... (mit minikube)
+	und fixen
+github add, commit und push

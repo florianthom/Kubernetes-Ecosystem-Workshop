@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: httpd-simple-page
 spec: # Specification of the deployment
-  replicas: 3
+  replicas: 15
   minReadySeconds: 15
   strategy:
     type: RollingUpdate

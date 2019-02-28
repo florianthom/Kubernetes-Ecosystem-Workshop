@@ -14,6 +14,7 @@ in-depth introduction to Kubernetes with detailed insights (in german)
     * PersistentVolumeClaim
     * most of scaling-possibilities (HPA,VPA,CA)
     * Secrets, ConfigMaps, ...
+* Helm
 
 ## Prerequisites
 if you want to rebuild my own example (= little httpd-server with only one index.html page)

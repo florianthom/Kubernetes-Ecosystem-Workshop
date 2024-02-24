@@ -1,6 +1,5 @@
-# Kubernetes Presentation
-
-in-depth introduction to Kubernetes with detailed insights (in german)
+# Kubernetes-Ecosystem Workshop
+Kubernetes Ecosystem Workshop: Overview to Kubernetes and insights into the Ecosystem with helm, ingress, heapster, freshpod.
 
 ## Learned
 * minikube
